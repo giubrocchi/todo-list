@@ -1,0 +1,120 @@
+.tabelas{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-variant: all-petite-caps;
+}
+
+table{
+    table-layout: fixed;
+    overflow-wrap: anywhere;
+}
+
+h1{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+p{
+    font-size: 16px;
+    color: gray;
+    margin: 0px;
+    line-height: 12px;
+}
+
+.td{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > *{
+    height: 50px;
+}
+
+input{
+    border: 1px solid gray;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+}
+
+button{
+    float: right;
+    outline: none;
+    border-radius: 50px;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    padding: 0px 12px 0px 12px;
+    font-size: 30px;
+    margin-top: -25px;
+    transition: 0.5s;
+}
+
+button:hover{
+    background-color: rgb(190, 190, 190);
+}
+
+.msg-erro{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: -30px;
+    color: red;
+}
+
+.btn-mudar{
+    background: none;
+    font-size: 18px;
+    padding: 0px;
+    margin-top: 3px;
+    margin-left: 10px;
+    color: #8a8a8a;
+    font-weight: bold;
+}
+
+.box-btn button{
+    margin-top: 0px;
+}
+
+.box-btn{
+    margin-top: -30px;
+}
+
+.tab{
+    width: 25%;
+}
+
+#esq{
+    border-right: 1px solid rgb(201, 201, 201);
+}
+
+#dir{
+    border-left: 1px solid rgb(201, 201, 201);
+}
+
+.editar{
+    background-color: rgb(224, 255, 245);
+}
+
+#edit{
+    background-color: rgb(119, 255, 255);
+    font-size: 24px;
+    padding: 0px 10px 0px 10px;
+}
+
+.lixo{
+    font-size: 15px;
+}
+
+#dois{
+    margin-top: 0px;
+}
+
+.box-td{
+    width: 80%;
+}

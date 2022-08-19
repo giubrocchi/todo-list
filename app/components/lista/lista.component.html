@@ -1,0 +1,89 @@
+<div class="msg-erro" [ngSwitch]="erro">
+    <div *ngSwitchCase="'erroAdicionar'">Erro ao adicionar tarefa. Título já está em uso</div>
+    <div *ngSwitchCase="'erroStatus'">Erro ao alterar status</div>
+    <div *ngSwitchCase="'erroEdit'">Erro ao editar tarefa</div>
+    <div *ngSwitchCase="'erroExc'">Erro ao excluir tarefa</div>
+</div>
+<div class="tabelas">
+    <div class="tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">To do</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of todo">
+                    <td id="esq" class="td">
+                        <p (click)="deletar(item.titulo)" class="lixo">🗑</p>
+                        <div class="box-td" (click)="habilitarEdit(item.titulo, item.desc)" placement="top" ngbTooltip="Clique para editar">
+                            <h1>{{ item.titulo }}</h1>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                        <button class="btn-mudar" (click)="mudarStatus(item.titulo, 'doing')">></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngIf="!editar" id="esq">
+                        <input type="text" placeholder="Título" #tit/><br>
+                        <input type="text" placeholder="Descrição" #des/>
+                        <button (click)="adicionar(tit.value, des.value)">+</button>
+                    </td>
+                    <td *ngIf="editar" id="esq" class="editar">
+                        <input #id hidden="true" [value]="editTit"/>
+                        <input type="text" placeholder="Título" [value]="editTit" #tit/><br>
+                        <input type="text" placeholder="Descrição" [value]="editDesc" #des/>
+                        <button (click)="edit(id.value, tit.value, des.value)" id="edit">✓</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Doing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of doing">
+                    <td class="td">
+                        <p (click)="deletar(item.titulo)" class="lixo">🗑</p>
+                        <div class="box-td" (click)="habilitarEdit(item.titulo, item.desc)" placement="top" ngbTooltip="Clique para editar">
+                            <h1>{{ item.titulo }}</h1>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                        <div class="box-btn" id="dois">
+                            <button class="btn-mudar" (click)="mudarStatus(item.titulo, 'done')">></button>
+                            <button class="btn-mudar" (click)="mudarStatus(item.titulo, 'todo')"><</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Done</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of done">
+                    <td id="dir" class="td">
+                        <p (click)="deletar(item.titulo)" class="lixo">🗑</p>
+                        <div class="box-td" (click)="habilitarEdit(item.titulo, item.desc)" placement="top" ngbTooltip="Clique para editar">
+                            <h1>{{ item.titulo }}</h1>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                        <button class="btn-mudar" (click)="mudarStatus(item.titulo, 'doing')"><</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
